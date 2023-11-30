@@ -27,7 +27,7 @@ function leadToSignUp() {
  * Redirects the user to the guest login page.
  */
 function guestLogIn() {
-  window.location.replace("https://gruppenarbeit-join-578.developerakademie.net/Join/index.html");
+  window.location.replace("../../index.html");  //https://gruppenarbeit-join-578.developerakademie.net/Join/index.html
 }
 
 
