@@ -1,3 +1,7 @@
+/**
+ * Generates HTML content for the help screen.
+ * @returns {string} The HTML content for the help screen.
+ */
 function generateHelpScreenHTML() {
     return /*html*/ `
     <div class="helpScreenSection">
@@ -28,6 +32,11 @@ function generateHelpScreenHTML() {
     </div>`;
 }
 
+
+/**
+ * Generates HTML content for the legal notice screen.
+ * @returns {string} The HTML content for the legal notice screen.
+ */
 function generateLegalNoticeScreenHTML() {
     return /*html*/ `
     <div class="helpScreenSection">
@@ -37,24 +46,24 @@ function generateLegalNoticeScreenHTML() {
     </div>
     <h3>Angaben gemäß § 5 TMG</h3>
     <p>Philipp Klinger<br>
-        Groß-Umstädter Str. 5<br>
+        Groß-Umstädter Straße 5<br>
         64747 Breuberg<br>
     </p>
-    <p>Max Mustermann<br>
-        Mustermannstraße 5<br>
-        Musterhausen<br>
+    <p>Denise Schmidt<br>
+        Erftstraße 29<br>
+        41517 Grevenbroich<br>
     </p>
-    <p>Max Mustermann<br>
-        Mustermannstraße 5<br>
-        Musterhausen<br>
+    <p>Davide Religioso<br>
+        Paprikastraße 58<br>
+        70619 Stuttgart<br>
     </p>
-    <p>Max Mustermann<br>
+    <p>Jacob Hengsbach<br>
         Mustermannstraße 5<br>
         Musterhausen<br>
     </p>
     <h2>Kontakt</h2>
-    <p>Telefon: +491704952704<br />
-        E-Mail: klinger.breuberg@web.de</h3>
+    <p>Telefon: +491602043995<br/>
+        E-Mail: davide-religioso@hotmail.de</h3>
     <h2>Quellen</h2>
     <p>Quelle: <a href="https://www.e-recht24.de">https://www.e-recht24.de</a></h3>
     <br>
@@ -81,12 +90,12 @@ function generateLegalNoticeScreenHTML() {
 <p>Wir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.</p>
 <h3>Hinweis zur verantwortlichen Stelle</h3> 
 <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p> 
-<p>Philipp Klinger<br />
-Groß-Umstädter Str.5<br />
-64747 Breuberg</p>
+<p>Davide Religioso<br/>
+Paprikastraße 58<br/>
+70619 Stuttgart</p>
 
-<p>Telefon: +491704952704<br />
-E-Mail: klinger.breuberg@web.de</p>
+<p>Telefon: +491602043995<br />
+E-Mail: davide-religioso@hotmail.de</p>
 <h3>Verantwortliche Stelle</h3>
 <p>Verantwortliche Stelle im Sinne der Datenschutzgesetze ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen usw.) entscheidet.</p>
 <h3>Speicherdauer</h3>

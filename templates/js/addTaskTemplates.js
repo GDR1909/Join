@@ -1,3 +1,7 @@
+/**
+ * Generates the HTML content for the main task form, including headline, left and right content, and two buttons.
+ * @returns {string} The HTML content.
+ */
 function generateAddTaskContent() {
     return /*html*/ `
         <form class="addTaskMainContainer" id="addTaskForm">
@@ -9,6 +13,10 @@ function generateAddTaskContent() {
 }
 
 
+/**
+ * Generates the HTML content for the left and right content container, including task details.
+ * @returns {string} The HTML content.
+ */
 function generateContentLeftAndRightContainer() {
     return /*html*/ `
         <div class="contentLeftAndRight">
@@ -146,6 +154,10 @@ function generateContentLeftAndRightContainer() {
 }
 
 
+/**
+ * Generates the HTML content for the two buttons container, including Clear and Create Task buttons.
+ * @returns {string} The HTML content.
+ */
 function generateTwoButtonsContainer() {
     return /*html*/ `
         <div class="twoButtons">

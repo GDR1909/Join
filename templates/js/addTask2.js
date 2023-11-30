@@ -118,12 +118,13 @@ function enableContactsForAssignedTo() {
     }
 }
 
- /**
-  * This function changes the clear button icon when the clear button gets hovered.
-  * 
-  * @param {string} IdDefault - This is the ID of the icon when it's in default.
-  * @param {string} IdHover - This is the ID of the icon when it's hovered.
-  */
+
+/**
+ * This function changes the clear button icon when the clear button gets hovered.
+ * 
+ * @param {string} IdDefault - This is the ID of the icon when it's in default.
+ * @param {string} IdHover - This is the ID of the icon when it's hovered.
+ */
 function changeClearBtnIconToHover(IdDefault, IdHover) {
     document.getElementById(IdDefault).classList.add('d-none');
     document.getElementById(IdHover).classList.remove('d-none');
@@ -140,6 +141,7 @@ function changeClearBtnIconToDefault(IdHover, IdDefault) {
     document.getElementById(IdHover).classList.add('d-none');
     document.getElementById(IdDefault).classList.remove('d-none');
 }
+
 
 /**
  * This function creates a new Task, pushes it in the 'newTaskArray' and executes 3 other functions.

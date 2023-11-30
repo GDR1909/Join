@@ -8,13 +8,14 @@ let filteredTasks = [];
 let newPrio;
 let chosenStat = 'todo';
 
+
 /**
  * This function assigns an id to each json from the task list.
  */
 function giveTaskId() {
     for (let i = 0; i < newTaskArray.length; i++) {
         const currentTask = newTaskArray[i];
-        
+
         currentTask['id'] = i;
     }
     removeClassContentSectionAddTask();
@@ -33,12 +34,13 @@ function updateBoardTasks() {
     showProgressbar();
 }
 
+
 /**
  * Renders the Headsection and the Boardsection
  */
 function renderBoardHTML() {
     let content = document.getElementById('contentSection');
-    
+
     content.innerHTML = '';
     content.innerHTML += renderBoardTemplateHTML();
     document.getElementById('body').classList.add('hideScrollBarY');
@@ -46,6 +48,7 @@ function renderBoardHTML() {
     renderBoardHeaderHTML();
     renderStatusFieldsHTML();
 }
+
 
 /**
  * Renders Headline, Searchfield and Button into the Headsection
@@ -57,6 +60,7 @@ function renderBoardHeaderHTML() {
 
     content.innerHTML += renderBoardHeaderTemplateHTML();
 }
+
 
 /**
  * Renders the status bars to the boardsection
@@ -74,6 +78,7 @@ function renderStatusFieldsHTML() {
     }
     updateBoardTasks();
 }
+
 
 /**
  * Renders all Tasks with the stat:'todo'.
@@ -97,6 +102,7 @@ function renderTodoTasksHTML(arrayName) {
     }
 }
 
+
 /**
  * Renders all Tasks with the stat:'in Progress'.
  * @param {string} arrayName - The name of the array which is called.
@@ -118,6 +124,7 @@ function renderInProgressHTML(arrayName) {
     }
 }
 
+
 /**
  * Renders all Tasks with the stat:'awaiting Feedback'.
  * @param {string} arrayName - The name of the array which is called.
@@ -128,16 +135,17 @@ function renderAwaitingFeedbackHTML(arrayName) {
 
     content.innerHTML = '';
 
-        for (let i = 0; i < awaitingFeedback.length; i++) {
-            const task = awaitingFeedback[i];
-            let subtasksAmount = task['subtasks'].length;
-            let doneSubtasks = task['doneSubTasks'];
-            let ProgressPercent = calculateProgress(subtasksAmount, doneSubtasks);
-    
-            content.innerHTML += generatePinnedTaskHTML(task, ProgressPercent);
-            renderAssignedToHTML(task);
-        }
+    for (let i = 0; i < awaitingFeedback.length; i++) {
+        const task = awaitingFeedback[i];
+        let subtasksAmount = task['subtasks'].length;
+        let doneSubtasks = task['doneSubTasks'];
+        let ProgressPercent = calculateProgress(subtasksAmount, doneSubtasks);
+
+        content.innerHTML += generatePinnedTaskHTML(task, ProgressPercent);
+        renderAssignedToHTML(task);
+    }
 }
+
 
 /**
  * Renders all Tasks with the stat:'done'.
@@ -160,13 +168,14 @@ function renderDoneHTML(arrayName) {
     }
 }
 
+
 /**
  * Checks the amount of assignments and controls how many are displayed.
  * @param {object} task - current Object from the Array, that is iterated in the for-loop.
  */
 function renderAssignedToHTML(task) {
     let content = document.getElementById(`assignedToContainer${task['id']}`);
-    let assignmentCount = task['assignedTo'].length -3;
+    let assignmentCount = task['assignedTo'].length - 3;
 
     content.innerHTML = '';
     if (task['assignedTo'].length <= 3) {
@@ -175,10 +184,11 @@ function renderAssignedToHTML(task) {
         renderTaskAssignmentListHTML(task, '3');
     }
 
-    if(task['assignedTo'].length > 3) {
+    if (task['assignedTo'].length > 3) {
         content.innerHTML += renderTaskAssignmentCountHTML(assignmentCount);
     }
 }
+
 
 /**
  * Renders all assignments for every JSON
@@ -192,10 +202,11 @@ function renderTaskAssignmentListHTML(task, count) {
         const assignment = task['assignedTo'][i];
         let initials = getInitials(assignment);
         let bgColor = task['color'][i];
-   
+
         content.innerHTML += renderTaskAssignmentsTemplateHTML(task, bgColor, initials);
     }
 }
+
 
 /**
  * If a JSOn from the array contains subtasks, a proggressbar is rendered. 
@@ -204,7 +215,7 @@ function showProgressbar() {
     for (let i = 0; i < newTaskArray.length; i++) {
         const task = newTaskArray[i];
 
-        if(task['subtasks'].length > 0) {
+        if (task['subtasks'].length > 0) {
             document.getElementById(`progressContainer${task['id']}`).classList.remove('d-none');
         }
     }
@@ -222,12 +233,14 @@ function openExistingTaskPopUp(Id) {
     document.getElementById('overlaySection').classList.remove('d-none');
 }
 
+
 /**
  * the popup disappears by using display: none.
  */
 function closeTaskPopUp() {
     document.getElementById('overlaySection').classList.add('d-none');
 }
+
 
 /**
  * Renders all Informations from the JSON into the Pop-up.
@@ -245,6 +258,7 @@ function renderClickedTaskPopUpHTML(Id) {
     renderSubtasksOverview(Id);
 }
 
+
 /**
  * Renders the date and the prio to the pop-up.
  * @param {object} clickedTask - current JSON from the newTaskArray.
@@ -256,6 +270,7 @@ function renderTaskPopUpTableHTML(clickedTask) {
 
     content.innerHTML += renderTaskPopUpTableTemplateHTML(clickedTask);
 }
+
 
 /**
  * Renders all assignments to the pop-up.
@@ -270,10 +285,11 @@ function renderTaskPopUpAssignmentsHTML(clickedTask) {
         const assignment = clickedTask['assignedTo'][i];
         let initials = getInitials(assignment);
         let bgColor = clickedTask['color'][i];
-        
+
         content.innerHTML += renderTaskAssignmentsPlusInitialsTemplateHTML(assignment, initials, bgColor);
-    } 
+    }
 }
+
 
 /**
  * Calls the renderfunction for the modify-pop-up.
@@ -283,6 +299,7 @@ function openModifyTaskPopUp(Id) {
     modifyCurrentTaskHTML(Id);
 }
 
+
 /**
  * renders the pop-up, where you can modify the clicked Task.
  * @param {nummber} Id - the index of the current Task.
@@ -291,7 +308,7 @@ function modifyCurrentTaskHTML(Id) {
     let content = document.getElementById('overlaySection');
     let currentTask = newTaskArray[Id];
     let prio = currentTask['prio'];
-    
+
     content.innerHTML = '';
     content.innerHTML = renderModifyTaskTemplateHTML(currentTask);
 
@@ -301,6 +318,7 @@ function modifyCurrentTaskHTML(Id) {
     renderModifySubtaskList(Id);
 
 }
+
 
 /**
  * Renders all assignments to the modify-pop-up.
@@ -316,12 +334,16 @@ function renderModifyAssignmentsHTML(Id) {
         const assignment = currentTask['assignedTo'][i];
         let initials = getInitials(assignment);
         let bgColor = currentTask['color'][i];
-        
+
         content.innerHTML += modifyAssignmentsTemplateHTML(i, Id, bgColor, initials);
     }
 }
 
 
+/**
+ * Renders an overview of subtasks for a given task ID.
+ * @param {number} Id - The index of the task in the newTaskArray.
+ */
 function renderSubtasksOverview(Id) {
     let content = document.getElementById('subtasksOverview');
 
@@ -332,11 +354,12 @@ function renderSubtasksOverview(Id) {
         const subtask = task['subtasks'][i];
         let isChecked = task['isChecked'][i];
 
-            content.innerHTML += /*html*/`
+        content.innerHTML += /*html*/`
                 <div>${i + 1}. ${subtask}</div>
             `;
     }
 }
+
 
 /**
  * controls which priobutton is highlighted on the modify-pop-up.
@@ -361,7 +384,10 @@ function modifyPrio(currentPriority) {
 }
 
 
-
+/**
+ * Adds a new subtask to the task identified by the given ID and updates the subtask list.
+ * @param {number} Id - The index of the task in the newTaskArray.
+ */
 function newModifySubtask(Id) {
     let newSubtask = document.getElementById('subtasks').value;
 
@@ -369,6 +395,7 @@ function newModifySubtask(Id) {
     document.getElementById('subtasks').value = '';
     renderModifySubtaskList(Id);
 }
+
 
 /**
  * Renders all Subtasks for the current Task.
@@ -384,16 +411,20 @@ function renderModifySubtaskList(Id) {
         const subtask = task['subtasks'][i];
         let isChecked = task['isChecked'][i];
 
-        if(isChecked == true) {
+        if (isChecked == true) {
             content.innerHTML += renderCheckedBoxTemplateHTML(i, Id, subtask);
-        } 
-        if(isChecked == false) {
+        }
+        if (isChecked == false) {
             content.innerHTML += renderUncheckedBoxTemplateHTML(i, Id, subtask);
         }
     }
 }
 
 
+/**
+ * Changes the visibility of the delete task image by adding a 'd-none' class
+ * and reveals a light version of the image by removing the 'd-none' class.
+ */
 function changeImg() {
     let deleteImg = document.getElementById('deleteTask-Img');
     let deleteImgLight = document.getElementById('deleteTask-light-Img');
@@ -403,6 +434,10 @@ function changeImg() {
 }
 
 
+/**
+ * Reverts the visibility of the delete task image by removing the 'd-none' class
+ * and hides the light version of the image by adding the 'd-none' class.
+ */
 function changeImgBack() {
     let deleteImg = document.getElementById('deleteTask-Img');
     let deleteImgLight = document.getElementById('deleteTask-light-Img');
@@ -410,6 +445,7 @@ function changeImgBack() {
     deleteImg.classList.remove('d-none');
     deleteImgLight.classList.add('d-none');
 }
+
 
 /**
  * Renders all contacts in the select-area.
@@ -429,7 +465,7 @@ function renderContactsModifyAddTask(Id) {
         const { name } = getJoinData(allData);
         const { color } = getJoinData(allData);
 
-        if(newTaskArray[Id]['assignedTo'].includes(name)) {
+        if (newTaskArray[Id]['assignedTo'].includes(name)) {
             content.innerHTML += /*html*/ `
                 <option disabled id="${color}" value="${Id}">${name}</option>
         ` } else {
@@ -437,8 +473,9 @@ function renderContactsModifyAddTask(Id) {
                     <option id="${color}" value="${Id}">${name}</option>
                 `
         }
-    } 
+    }
 }
+
 
 /**
  * Calls the function modifyAssignedTo(), when an option is pressed.
@@ -449,6 +486,9 @@ function activateEvent() {
 }
 
 
+/**
+ * Modifies the assigned team member for a task based on user selection.
+ */
 function modifyAssignedTo() {
     let assignee = document.getElementById("assignedTo");
     let Id = assignee.options[assignee.selectedIndex].value;
@@ -466,20 +506,26 @@ function modifyAssignedTo() {
 }
 
 
+/**
+ * Changes the status of the task based on the specified direction.
+ * @param {number} Id - The index of the current task.
+ * @param {string} direction - The direction of the status change ('up' or 'down').
+ */
 function changeStat(Id, direction) {
     let currentTask = newTaskArray[Id];
     let index = taskStatusClasses.indexOf(currentTask['stat']);
 
-    if(direction == 'up' && index <= 2) {
+    if (direction == 'up' && index <= 2) {
         currentTask['stat'] = taskStatusClasses[index + 1];
-    } 
+    }
 
-    if(direction == 'down' && index > 0) {
+    if (direction == 'down' && index > 0) {
         currentTask['stat'] = taskStatusClasses[index - 1];
-    } 
+    }
     saveTasks();
     updateBoardTasks();
 }
+
 
 /**
  * Delets the cklicked Assignment from the Task.
@@ -501,6 +547,7 @@ function deleteAssignmentOption(i, Id) {
     }
 }
 
+
 /**
  * Controls the Amount of done Subtasks.
  * @param {number} i - index of current subtask.
@@ -510,16 +557,17 @@ function configDoneSubtask(i, Id) {
     let task = newTaskArray[Id];
     let currentStatus = document.getElementById(`subtaskCheckBox${i}`).checked;
 
-    if(currentStatus == true) {
+    if (currentStatus == true) {
         task['doneSubTasks']++;
-    } 
-    
+    }
+
     if (currentStatus == false) {
         task['doneSubTasks']--;
         console.log(task['doneSubTasks']);
     }
     task['isChecked'][i] = currentStatus;
 }
+
 
 /**
  * Calculates the progress in percent.
@@ -535,6 +583,7 @@ function calculateProgress(subTaskAmount, doneAmount) {
 
     return progressInPercent;
 }
+
 
 /** 
  * Confirms the changes on the current task and save them on the server.
@@ -554,6 +603,7 @@ function confirmChangesOnTask(Id) {
     saveTasks();
     updateBoardTasks();
 }
+
 
 /**
  * Delets the current Task.
@@ -580,6 +630,7 @@ function startDragging(id) {
     document.getElementById(`pinnedTaskContainer${currentDraggedTask}`).classList.add('rotateDeg');
 }
 
+
 /**
  * Allows to drop off elements.
  * @param {Event} ev -
@@ -589,16 +640,18 @@ function allowDrop(ev) {
 
 }
 
+
 /**
  * Changes the stat of the dragged task.
  * @param {string} stat - status of the statusbar above which the dragged element is dropped off.
  */
 function drop(stat) {
-    newTaskArray[currentDraggedTask]['stat']  = stat;
+    newTaskArray[currentDraggedTask]['stat'] = stat;
     document.getElementById(`pinnedTaskContainer${currentDraggedTask}`).classList.remove('rotateDeg');
     saveTasks();
     updateBoardTasks();
 }
+
 
 ////////////Search for Task////////////////////////////
 
@@ -611,16 +664,17 @@ function searchTask() {
     for (let i = 0; i < newTaskArray.length; i++) {
         const currentTask = newTaskArray[i];
         let search = searchInput.toLowerCase();
-        let search2 =  capitalizeFirstLetter(search);
+        let search2 = capitalizeFirstLetter(search);
 
         if (currentTask['title'].includes(search) || currentTask['description'].includes(search)) {
             filteredTasks.push(currentTask);
-            } else if(currentTask['title'].includes(search2) || currentTask['description'].includes(search2)) {
-                filteredTasks.push(currentTask);
-            }
+        } else if (currentTask['title'].includes(search2) || currentTask['description'].includes(search2)) {
+            filteredTasks.push(currentTask);
         }
-        renderFilteredTasks('filteredTasks');
+    }
+    renderFilteredTasks('filteredTasks');
 }
+
 
 /**
  * makes the initial letter uppercase.
@@ -630,6 +684,7 @@ function searchTask() {
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
 
 /**
  * renders all tasks that are in the filterarray. At the end the array is emptied.
@@ -642,17 +697,3 @@ function renderFilteredTasks() {
 
     filteredTasks = [];
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

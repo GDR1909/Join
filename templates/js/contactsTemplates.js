@@ -1,3 +1,7 @@
+/**
+ * Generates the HTML for the contacts section.
+ * @returns {string} - The HTML string for the contacts section.
+ */
 function generateContactsHTML() {
     return /*html*/ `
     <div class="contactsSection" id="contactsSection">
@@ -30,6 +34,11 @@ function generateContactsHTML() {
 `
 }
 
+
+/**
+ * Generates the HTML for the mobile button in the contacts list.
+ * @returns {string} - The HTML string for the mobile button in the contacts list.
+ */
 function generateContactsListMobileButton() {
     return /*html*/ `
     <div class="contactsDetailBottomBtn btnMobile" onclick="addNewContact()">
@@ -38,6 +47,17 @@ function generateContactsListMobileButton() {
 </div>`;
 }
 
+
+/**
+ * Generates the HTML for the contact details content.
+ * @param {string} name - The name of the contact.
+ * @param {string} email - The email of the contact.
+ * @param {string} phone - The phone number of the contact.
+ * @param {string} color - The background color for the contact initials.
+ * @param {string} initials - The initials of the contact.
+ * @param {number} i - The index of the contact.
+ * @returns {string} - The HTML string for the contact details content.
+ */
 function generateContactsDetailContentHTML(name, email, phone, color, initials, i) {
     return /*html*/ `
         <div class="contactsDetailInfoHead">
@@ -69,6 +89,12 @@ function generateContactsDetailContentHTML(name, email, phone, color, initials, 
             </div>`
 }
 
+
+/**
+ * Generates the HTML for a group in the contacts list.
+ * @param {string} groupLetter - The letter of the group.
+ * @returns {string} - The HTML string for the contacts list group.
+ */
 function generateContactsListGroupHTML(groupLetter) {
     return /*html*/ `
     <div class="contactsListGroup" id="contactsListGroup${groupLetter}">
@@ -79,6 +105,16 @@ function generateContactsListGroupHTML(groupLetter) {
     `
 }
 
+
+/**
+ * Generates the HTML for a contact in a group in the contacts list.
+ * @param {string} name - The name of the contact.
+ * @param {string} email - The email of the contact.
+ * @param {string} color - The background color for the contact initials.
+ * @param {string} initials - The initials of the contact.
+ * @param {number} i - The index of the contact.
+ * @returns {string} - The HTML string for the contacts list group contact.
+ */
 function generateContactsListGroupContactHTML(name, email, color, initials, i) {
     return /*html*/ `
     <div onclick="showContactDetails(${i})" class="contactsListGroupContact contactsListGroupContactBgInactive" id="contactsListGroupContact${i}">
@@ -90,6 +126,11 @@ function generateContactsListGroupContactHTML(name, email, color, initials, i) {
         </div>`
 }
 
+
+/**
+ * Generates the HTML for the add contact overlay.
+ * @returns {string} - The HTML string for the add contact overlay.
+ */
 function generateContactsOverlayAddHTML() {
     return /*html*/ `
 <div class="overlayAddContact" id="overlayAddContact" onclick="doNotClose(event)">
@@ -134,6 +175,17 @@ function generateContactsOverlayAddHTML() {
         </div>`
 }
 
+
+/**
+ * Generates the HTML for the edit contact overlay.
+ * @param {string} name - The name of the contact.
+ * @param {string} email - The email of the contact.
+ * @param {string} phone - The phone number of the contact.
+ * @param {string} color - The background color for the contact initials.
+ * @param {string} initials - The initials of the contact.
+ * @param {number} i - The index of the contact.
+ * @returns {string} - The HTML string for the edit contact overlay.
+ */
 function generateContactsOverlayEditHTML(name, email, phone, color, initials, i) {
     return /*html*/ `
     <div class="overlayAddContact" id="overlayAddContact" onclick="doNotClose(event)">
@@ -178,6 +230,11 @@ function generateContactsOverlayEditHTML(name, email, phone, color, initials, i)
     `
 }
 
+
+/**
+ * Generates the HTML for the success message after creating a contact.
+ * @returns {string} - The HTML string for the success message.
+ */
 function generateContactSuccessHTML() {
     return /*html*/ `<img class="overlayAddContactSuccess" src="./img/newContactSuccess.svg">`;
 }

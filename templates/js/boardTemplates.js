@@ -1,3 +1,11 @@
+/**
+ * Generates HTML for a single assignment with initials and background color.
+ * @param {number} i - Index of the assignment.
+ * @param {string} Id - Identifier for the assignment.
+ * @param {string} bgColor - Background color for the assignment.
+ * @param {string} initials - Initials for the assignment.
+ * @returns {string} - HTML code for the assignment.
+ */
 function modifyAssignmentsTemplateHTML(i, Id, bgColor, initials) {
     return /*html*/`
     <div onclick="deleteAssignmentOption('${i}', '${Id}')" class="taskPopUpSingleAssignmentInitals contactContainer" style="background:${bgColor}">
@@ -7,6 +15,11 @@ function modifyAssignmentsTemplateHTML(i, Id, bgColor, initials) {
 }
 
 
+/**
+ * Generates HTML for modifying a task, including title, description, due date, priority, assignments, subtasks, etc.
+ * @param {Object} currentTask - The task to modify.
+ * @returns {string} - HTML code for modifying the task.
+ */
 function renderModifyTaskTemplateHTML(currentTask) {
     return /*html*/`
     <div class="taskModifyPopUp" onclick="doNotClose(event)">
@@ -80,6 +93,13 @@ function renderModifyTaskTemplateHTML(currentTask) {
 }
 
 
+/**
+ * Generates HTML for a single assignment with initials, name, and background color.
+ * @param {string} assignment - Assignment name.
+ * @param {string} initials - Initials for the assignment.
+ * @param {string} bgColor - Background color for the assignment.
+ * @returns {string} - HTML code for the assignment with initials and name.
+ */
 function renderTaskAssignmentsPlusInitialsTemplateHTML(assignment, initials, bgColor) {
     return /*html*/`
     <div class="taskPopUpSingleAssignmentContainer">
@@ -90,6 +110,11 @@ function renderTaskAssignmentsPlusInitialsTemplateHTML(assignment, initials, bgC
 }
 
 
+/**
+ * Generates HTML for a row in the task pop-up table, displaying due date and priority.
+ * @param {Object} clickedTask - The task being displayed.
+ * @returns {string} - HTML code for a row in the task pop-up table.
+ */
 function renderTaskPopUpTableTemplateHTML(clickedTask) {
     return /*html*/`
     <div class="taskPopUpRow">
@@ -109,7 +134,12 @@ function renderTaskPopUpTableTemplateHTML(clickedTask) {
 }
 
 
-
+/**
+ * Generates HTML for the pop-up displaying details of a clicked task.
+ * @param {Object} clickedTask - The clicked task.
+ * @param {string} Id - Identifier for the task.
+ * @returns {string} - HTML code for the task overview pop-up.
+ */
 function renderClickedTaskOverviewPopUpTemplateHTML(clickedTask, Id) {
     return /*html*/`
     <div class="taskOverviewPopUp" onclick="doNotClose(event)">
@@ -151,6 +181,12 @@ function renderClickedTaskOverviewPopUpTemplateHTML(clickedTask, Id) {
 }
 
 
+/**
+ * Generates HTML for a pinned task, including title, description, progress, category, etc.
+ * @param {Object} task - The pinned task.
+ * @param {number} progressInPercent - Progress of the task in percentage.
+ * @returns {string} - HTML code for a pinned task.
+ */
 function generatePinnedTaskHTML(task, progressInPercent) {
     return /*html*/`
     <div onclick="openExistingTaskPopUp(${task['id']})">
@@ -192,13 +228,25 @@ function generatePinnedTaskHTML(task, progressInPercent) {
 }
 
 
+/**
+ * Generates HTML for a single assignment in the task assignments container.
+ * @param {Object} task - The task with assignments.
+ * @param {string} bgColor - Background color for the assignment.
+ * @param {string} initials - Initials for the assignment.
+ * @returns {string} - HTML code for a task assignment.
+ */
 function renderTaskAssignmentsTemplateHTML(task, bgColor, initials) {
     return /*html*/`
     <div class="contactContainer" id="" style="background-color:${bgColor}">${initials}</div>
-    `; 
+    `;
 }
 
 
+/**
+ * Generates HTML for a count of additional assignments.
+ * @param {number} assignmentCount - Number of additional assignments.
+ * @returns {string} - HTML code for the assignment count.
+ */
 function renderTaskAssignmentCountHTML(assignmentCount) {
     return /*html*/`
     <div class="contactContainer" style="background-color: rgb(0, 0, 0)">+${assignmentCount}</div>
@@ -206,6 +254,13 @@ function renderTaskAssignmentCountHTML(assignmentCount) {
 }
 
 
+/**
+ * Generates HTML for a status container in the board.
+ * @param {number} i - Index of the status container.
+ * @param {string} stat - Status name.
+ * @param {string} statClass - Class associated with the status.
+ * @returns {string} - HTML code for a status container.
+ */
 function renderStatusfieldsTemplateHTML(i, stat, statClass) {
     return /*html*/`
     <div class="statContainer">
@@ -224,6 +279,10 @@ function renderStatusfieldsTemplateHTML(i, stat, statClass) {
 }
 
 
+/**
+ * Generates HTML for the board header, including board name, search bar, and add task button.
+ * @returns {string} - HTML code for the board header.
+ */
 function renderBoardHeaderTemplateHTML() {
     return /*html*/`
     <div id= "BoardManagementText" class="boardManagementText">Kanban Project Management Tool</div>
@@ -235,7 +294,6 @@ function renderBoardHeaderTemplateHTML() {
             <div class="plusLine2 bg-white"></div>
         </div>
     </div>
-
 
     <div class="boardHeadlineRightContainer">
         <div class="searchContainer">
@@ -256,6 +314,10 @@ function renderBoardHeaderTemplateHTML() {
 }
 
 
+/**
+ * Generates HTML for the main board container.
+ * @returns {string} - HTML code for the board container.
+ */
 function renderBoardTemplateHTML() {
     return /*html*/`
     <div class="boardBody" id="boardBody">
@@ -267,6 +329,13 @@ function renderBoardTemplateHTML() {
 }
 
 
+/**
+ * Generates HTML for a checked subtask.
+ * @param {number} i - Index of the subtask.
+ * @param {string} Id - Identifier for the task.
+ * @param {string} subtask - Subtask name.
+ * @returns {string} - HTML code for a checked subtask.
+ */
 function renderCheckedBoxTemplateHTML(i, Id, subtask) {
     return /*html*/`
     <div class="subtask modifySubtask">
@@ -277,6 +346,13 @@ function renderCheckedBoxTemplateHTML(i, Id, subtask) {
 }
 
 
+/**
+ * Generates HTML for an unchecked subtask.
+ * @param {number} i - Index of the subtask.
+ * @param {string} Id - Identifier for the task.
+ * @param {string} subtask - Subtask name.
+ * @returns {string} - HTML code for an unchecked subtask.
+ */
 function renderUncheckedBoxTemplateHTML(i, Id, subtask) {
     return /*html*/`
     <div class="subtask modifySubtask">

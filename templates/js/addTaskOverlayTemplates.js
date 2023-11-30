@@ -1,3 +1,7 @@
+/**
+ * Generates the HTML content for the left and right container overlay.
+ * @returns {string} The HTML content.
+ */
 function generateContentLeftAndRightContainerOverlay() {
     return /*html*/ `
         <div class="contentLeftAndRight contentLeftAndRightOverlay">
@@ -135,6 +139,10 @@ function generateContentLeftAndRightContainerOverlay() {
 }
 
 
+/**
+ * Generates the HTML content for the two buttons container overlay.
+ * @returns {string} The HTML content.
+ */
 function generateTwoButtonsContainerOverlay() {
     return /*html*/ `
         <div class="twoButtons">
