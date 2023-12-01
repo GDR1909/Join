@@ -121,8 +121,11 @@
     }
 
     .overlayAddContactRightProfilepic h4 {
-        padding: 20px;
         margin: 0;
+    }
+
+    .overlayAddContactRightInputSection form {
+        gap: 22px;
     }
 
     .overlayAddContactRightInputSectionHead {
