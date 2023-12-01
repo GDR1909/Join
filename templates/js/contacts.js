@@ -261,6 +261,7 @@ async function deleteContact(i) {
     allContacts.splice(i, 1);
     await setItem('contacts', JSON.stringify(allContacts));
     showEmptyContact();
+    initContacts();
 }
 
 
@@ -271,7 +272,6 @@ function showEmptyContact() {
     document.getElementById('contactsList').innerHTML = '';
     document.getElementById('contactsDetailInfo').innerHTML = '';
     document.getElementById('overlaySection').classList.add('d-none');
-    renderContactsList();
 }
 
 
