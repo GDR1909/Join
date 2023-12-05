@@ -7,7 +7,7 @@ function openAddTaskOverlay(stat) {
     chosenStat = stat;
     document.getElementById('overlaySection').classList.remove('d-none');
     document.getElementById('overlaySection').innerHTML = /*html*/ `
-        <form class="addTaskOverlay" id="addTaskForm" onclick="doNotClose(event)">
+        <form class="addTaskOverlay" id="addTaskForm" onclick="doNotClose(event); closeCategoryDropdownOverlay();">
             <div class="headlineContainerOverlay" id="headlineContainerOverlay"></div>
             <div class="contentLeftAndRightContainerOverlay" id="contentLeftAndRightContainerOverlay"></div>
             <div class="twoButtonsContainerOverlay" id="twoButtonsContainerOverlay"></div>
@@ -167,6 +167,7 @@ function lowOverlay() {
  * This function opens the dropdown menu to select a category.
  */
 function openCategoryDropdownOverlay() {
+    doNotClose(event);
     document.getElementById('categoryDropdownOverlay').classList.remove('d-none');
     document.getElementById('categoryOverlay').style.cssText = `
         border-bottom-left-radius: 0px;
@@ -363,6 +364,7 @@ function createTaskOverlay() {
     let title = document.getElementById('title').value;
     let description = document.getElementById('description').value;
     let category = document.getElementById('categoryOverlay').innerText;
+    category = checkIfCategoryIsSelected(category);
     let date = dateArray;
 
     let newTask = {

@@ -67,7 +67,6 @@ function searchDate() {
     earliest = minDate.reduce(function (pre, cur) {
       return Date.parse(pre) > Date.parse(cur) ? cur : pre;
     });
-    console.log(earliest);
     generateDate(earliest);
   }
 }

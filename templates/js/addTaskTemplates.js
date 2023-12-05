@@ -56,7 +56,7 @@ function generateContentLeftAndRightContainer() {
                         <p class="categoryColor" style="background-color: blue" onclick="addColorToNewCategory('blue')"></p>
                     </div>
                     
-                    <div class="category" id="category" onclick="openCategoryDropdown()">Select task category</div>
+                    <div class="category" id="category" tabindex="-1" onclick="openCategoryDropdown()">Select task category</div>
                     <div id="categoryDropdown" class="categoryDropdown d-none">
                         <div class="categoryOption" onclick="newCategory()">
                             New category

@@ -201,6 +201,7 @@ function low() {
  * This function opens the dropdown menu to select a category.
  */
 function openCategoryDropdown() {
+    doNotClose(event);
     document.getElementById('categoryDropdown').classList.remove('d-none');
     document.getElementById('category').style.cssText = `
         border-bottom-left-radius: 0px;

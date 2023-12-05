@@ -563,7 +563,6 @@ function configDoneSubtask(i, Id) {
 
     if (currentStatus == false) {
         task['doneSubTasks']--;
-        console.log(task['doneSubTasks']);
     }
     task['isChecked'][i] = currentStatus;
 }

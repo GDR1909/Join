@@ -150,6 +150,7 @@ function createTask() {
     let title = document.getElementById('title').value;
     let description = document.getElementById('description').value;
     let category = document.getElementById('category').innerText;
+    category = checkIfCategoryIsSelected(category);
     let date = dateArray;
 
     let newTask = {
@@ -171,6 +172,15 @@ function createTask() {
     saveTasks();
     clearFields();
     taskAddedToBoard();
+}
+
+
+function checkIfCategoryIsSelected(category) {
+    if (category === 'Select task category') {
+        return 'No category';
+    } else {
+        return category;
+    }
 }
 
 

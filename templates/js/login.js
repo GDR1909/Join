@@ -45,9 +45,7 @@ async function login() {
 
   localStorage.setItem('currentEmail', email.value);
 
-  console.log(user);
   if (user) {
-    console.log("user gefunden");
     window.location.replace("https://gruppenarbeit-join-578.developerakademie.net/Join/index.html");
   } else {
     document.getElementById("msgBox").innerHTML = `Email oder Passwort nicht korrekt!`;

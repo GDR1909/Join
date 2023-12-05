@@ -54,7 +54,6 @@ function resetUserPassword(email) {
     let i = userLogin.findIndex(function (a) {
         return a.email === email;
     });
-    console.log(i);
     return i;
 }
 
