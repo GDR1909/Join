@@ -22,12 +22,12 @@ function generateContentLeftAndRightContainer() {
         <div class="contentLeftAndRight">
             <div class="contentLeft">
                 <div class="titleAndInput">
-                    <span>Title</span>
+                    <span>Title *</span>
                     <input id="title" type="text" required placeholder="Enter a title">
                 </div>
 
                 <div class="descriptionAndTextarea">
-                    <span>Description</span>
+                    <span>Description *</span>
                     <textarea id="description" type="text" required placeholder="Enter a Description"></textarea>
                 </div>
 
@@ -95,7 +95,7 @@ function generateContentLeftAndRightContainer() {
                 </div>
 
                 <div class="assignedToAndSelect">
-                    <span>Assigned to</span>
+                    <span>Assigned to *</span>
                     <select id="assignedTo" required> 
                         <option value="" disabled selected>Select contacts to assign</option>
                     </select>
@@ -110,7 +110,7 @@ function generateContentLeftAndRightContainer() {
 
             <div class="contentRight">
                 <div class="dueDateAndInput">
-                    <span>Due Date</span>
+                    <span>Due Date *</span>
                     <input type="date" id="date" required placeholder="dd/mm/yyyy" onchange="pushDate()">
                 </div>
 
