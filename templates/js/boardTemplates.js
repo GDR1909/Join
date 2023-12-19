@@ -193,8 +193,8 @@ function generatePinnedTaskHTML(task, progressInPercent) {
         <div draggable="true" ondragstart="startDragging(${task['id']})" class="pinnedTaskContainer" id="pinnedTaskContainer${task['id']}">
 
         <div class="statChangeContainer d-none" onclick="doNotClose(event)">
-            <img onclick="changeStat(${task['id']}, 'down')" class="statChangeImgUp" src="./img/urgentWhiteIcon.png" alt="">
-            <img onclick="changeStat(${task['id']}, 'up')" class="statChangeImgDown" src="./img/lowWhiteIcon.png" alt="">
+            <img onclick="changeStat(${task['id']}, 'down')" class="statChangeImgUp" id="statChangeImgUp${task['id']}" src="./img/urgentWhiteIcon.png">
+            <img onclick="changeStat(${task['id']}, 'up')" class="statChangeImgDown" id="statChangeImgDown" src="./img/lowWhiteIcon.png">
         </div>
 
         <div class="taskCategory ${task['category'].toLowerCase()}-bg">

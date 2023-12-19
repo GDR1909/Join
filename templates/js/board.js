@@ -90,7 +90,6 @@ function renderTodoTasksHTML(arrayName) {
 
     content.innerHTML = '';
 
-
     for (let i = 0; i < todos.length; i++) {
         const task = todos[i];
         let subtasksAmount = task['subtasks'].length;
@@ -99,6 +98,14 @@ function renderTodoTasksHTML(arrayName) {
 
         content.innerHTML += generatePinnedTaskHTML(task, ProgressPercent);
         renderAssignedToHTML(task);
+        removeStatChangeImgUpInTodo(task);
+    }
+}
+
+
+function removeStatChangeImgUpInTodo(task) {
+    if (task) {
+        document.getElementById(`statChangeImgUp${task.id}`).classList.add('d-none');
     }
 }
 
