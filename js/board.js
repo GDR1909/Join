@@ -601,8 +601,8 @@ function calculateProgress(subTaskAmount, doneAmount) {
     if (doneAmount > subTaskAmount) {
         doneAmount = subTaskAmount;
     }
-    let progressInPercent = 100 / subTaskAmount * doneAmount;
 
+    let progressInPercent = 100 / subTaskAmount * doneAmount;
     return progressInPercent;
 }
 
@@ -632,7 +632,6 @@ function confirmChangesOnTask(Id) {
  * @param {number} Id - index of the current Task.
  */
 function deleteTask(Id) {
-
     newTaskArray.splice(Id, 1);
     giveTaskId();
     closeTaskPopUp();
@@ -659,7 +658,6 @@ function startDragging(id) {
  */
 function allowDrop(ev) {
     ev.preventDefault();
-
 }
 
 

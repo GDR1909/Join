@@ -116,21 +116,42 @@ function pushDate() {
 
 
 /**
- * This function first executes the low-function so the prio button 'low' ist active and sets up event listeners.
+ * Activates priority buttons and associated event listeners.
+ * - The 'Urgent', 'Medium', and 'Low' buttons change the selected priority and update the button styles.
+ * - The 'Reset' button resets the priority to 'Low'.
+ * - The 'Assigned To' dropdown triggers the 'assignedTo' function.
+ * - The form submission triggers the 'createTask' function.
  */
 function activatePrioButtons() {
-    low();
+    selectedPrioBtn('low', 'low', 'lowIcon', './img/lowWhiteIcon.png');
+
     let urgentBtn = document.getElementById('urgent');
-    urgentBtn.addEventListener("click", urgent);
+    urgentBtn.addEventListener("click", function() {
+        selectedPrioBtn('urgent', 'urgent', 'urgentIcon', './img/urgentWhiteIcon.png');
+        unselectPrioBtn('medium', 'medium', 'mediumIcon', './img/mediumIcon.png');
+        unselectPrioBtn('low', 'low', 'lowIcon', './img/lowIcon.png');
+    });
 
     let mediumBtn = document.getElementById('medium');
-    mediumBtn.addEventListener("click", medium);
+    mediumBtn.addEventListener("click", function() {
+        selectedPrioBtn('medium', 'medium', 'mediumIcon', './img/mediumWhiteIcon.png');
+        unselectPrioBtn('urgent', 'urgent', 'urgentIcon', './img/urgentIcon.png');
+        unselectPrioBtn('low', 'low', 'lowIcon', './img/lowIcon.png');
+    });
 
     let lowBtn = document.getElementById('low');
-    lowBtn.addEventListener("click", low);
+    lowBtn.addEventListener("click", function() {
+        selectedPrioBtn('low', 'low', 'lowIcon', './img/lowWhiteIcon.png');
+        unselectPrioBtn('urgent', 'urgent', 'urgentIcon', './img/urgentIcon.png');
+        unselectPrioBtn('medium', 'medium', 'mediumIcon', './img/mediumIcon.png');
+    });
 
     let resetBtn = document.getElementById('reset');
-    resetBtn.addEventListener("click", low);
+    resetBtn.addEventListener("click", function() {
+        selectedPrioBtn('low', 'low', 'lowIcon', './img/lowWhiteIcon.png');
+        unselectPrioBtn('urgent', 'urgent', 'urgentIcon', './img/urgentIcon.png');
+        unselectPrioBtn('medium', 'medium', 'mediumIcon', './img/mediumIcon.png');
+    });
     resetBtn.addEventListener("click", clearDisabledState);
 
     let assignBtn = document.getElementById('assignedTo');
@@ -144,56 +165,31 @@ function activatePrioButtons() {
 
 
 /**
- * This function activates the urgent button and deactivates the other two prio buttons.
+ * Updates the style of the selected priority button.
+ * @param {string} prioBtnId - The ID of the priority button.
+ * @param {string} prioBtnClassList - The CSS class to be added to the priority button.
+ * @param {string} prioBtnIconId - The ID of the priority button icon.
+ * @param {string} prioBtnWhiteIconSrc - The source of the white version of the priority button icon.
  */
-function urgent() {
-    let prioValue = document.getElementById('urgent').value;
+function selectedPrioBtn(prioBtnId, prioBtnClassList, prioBtnIconId, prioBtnWhiteIconSrc) {
+    let prioValue = document.getElementById(prioBtnId);
     prio = prioValue;
 
-    document.getElementById('urgent').classList.add('urgent');
-    document.getElementById('urgentIcon').src = './img/urgentWhiteIcon.png';
-
-    document.getElementById('medium').classList.remove('medium');
-    document.getElementById('mediumIcon').src = './img/mediumIcon.png';
-
-    document.getElementById('low').classList.remove('low');
-    document.getElementById('lowIcon').src = './img/lowIcon.png';
+    document.getElementById(prioBtnId).classList.add(prioBtnClassList);
+    document.getElementById(prioBtnIconId).src = prioBtnWhiteIconSrc;
 }
 
 
 /**
- * This function activates the medium button and deactivates the other two prio buttons.
+ * Resets the style of the unselected priority button.
+ * @param {string} prioBtnId - The ID of the priority button.
+ * @param {string} prioBtnClassList - The CSS class to be removed from the priority button.
+ * @param {string} prioBtnIconId - The ID of the priority button icon.
+ * @param {string} prioBtnIconSrc - The source of the default version of the priority button icon.
  */
-function medium() {
-    let prioValue = document.getElementById('medium').value;
-    prio = prioValue;
-
-    document.getElementById('medium').classList.add('medium');
-    document.getElementById('mediumIcon').src = './img/mediumWhiteIcon.png';
-
-    document.getElementById('urgent').classList.remove('urgent');
-    document.getElementById('urgentIcon').src = './img/urgentIcon.png';
-
-    document.getElementById('low').classList.remove('low');
-    document.getElementById('lowIcon').src = './img/lowIcon.png';
-}
-
-
-/**
- * This function activates the low button and deactivates the other two prio buttons.
- */
-function low() {
-    let prioValue = document.getElementById('low').value;
-    prio = prioValue;
-
-    document.getElementById('low').classList.add('low');
-    document.getElementById('lowIcon').src = './img/lowWhiteIcon.png';
-
-    document.getElementById('medium').classList.remove('medium');
-    document.getElementById('mediumIcon').src = './img/mediumIcon.png';
-
-    document.getElementById('urgent').classList.remove('urgent');
-    document.getElementById('urgentIcon').src = './img/urgentIcon.png';
+function unselectPrioBtn(prioBtnId, prioBtnClassList, prioBtnIconId, prioBtnIconSrc) {
+    document.getElementById(prioBtnId).classList.remove(prioBtnClassList);
+    document.getElementById(prioBtnIconId).src = prioBtnIconSrc;
 }
 
 
