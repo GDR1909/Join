@@ -194,7 +194,7 @@ function generatePinnedTaskHTML(task, progressInPercent) {
 
         <div class="statChangeContainer d-none" onclick="doNotClose(event)">
             <img onclick="changeStat(${task['id']}, 'down')" class="statChangeImgUp" id="statChangeImgUp${task['id']}" src="./img/urgentWhiteIcon.png">
-            <img onclick="changeStat(${task['id']}, 'up')" class="statChangeImgDown" id="statChangeImgDown" src="./img/lowWhiteIcon.png">
+            <img onclick="changeStat(${task['id']}, 'up')" class="statChangeImgDown" id="statChangeImgDown${task['id']}" src="./img/lowWhiteIcon.png">
         </div>
 
         <div class="taskCategory ${task['category'].toLowerCase()}-bg">

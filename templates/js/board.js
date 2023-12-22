@@ -103,6 +103,10 @@ function renderTodoTasksHTML(arrayName) {
 }
 
 
+/**
+ * Hides the upward status change image in the specified task's Todo section.
+ * @param {Object} task - The task object with an 'id' property.
+ */
 function removeStatChangeImgUpInTodo(task) {
     if (task) {
         document.getElementById(`statChangeImgUp${task.id}`).classList.add('d-none');
@@ -172,6 +176,18 @@ function renderDoneHTML(arrayName) {
 
         content.innerHTML += generatePinnedTaskHTML(task, ProgressPercent);
         renderAssignedToHTML(task);
+        removeStatChangeImgDownInDone(task);
+    }
+}
+
+
+/**
+ * Hides the downward status change image in the specified task's Done section.
+ * @param {Object} task - The task object with an 'id' property.
+ */
+function removeStatChangeImgDownInDone(task) {
+    if (task) {
+        document.getElementById(`statChangeImgDown${task.id}`).classList.add('d-none');
     }
 }
 
