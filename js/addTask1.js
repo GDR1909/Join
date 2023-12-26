@@ -6,6 +6,7 @@ let contactsColors = [];
 let objIds = [];
 let dateArray = [];
 let isChecked = [];
+let categoryDropdownIsOpen = false;
 
 
 /**
@@ -172,7 +173,7 @@ function activatePrioButtons() {
  * @param {string} prioBtnWhiteIconSrc - The source of the white version of the priority button icon.
  */
 function selectedPrioBtn(prioBtnId, prioBtnClassList, prioBtnIconId, prioBtnWhiteIconSrc) {
-    let prioValue = document.getElementById(prioBtnId);
+    let prioValue = document.getElementById(prioBtnId).value;
     prio = prioValue;
 
     document.getElementById(prioBtnId).classList.add(prioBtnClassList);
@@ -197,6 +198,7 @@ function unselectPrioBtn(prioBtnId, prioBtnClassList, prioBtnIconId, prioBtnIcon
  * This function opens the dropdown menu to select a category.
  */
 function openCategoryDropdown() {
+    categoryDropdownIsOpen = true;
     doNotClose(event);
     document.getElementById('categoryDropdown').classList.remove('d-none');
     document.getElementById('category').style.cssText = `
@@ -283,11 +285,14 @@ function selectedCategory(category, color) {
  * This function closes the dropdown menu that shows the categories that are selectable.
  */
 function closeCategoryDropdown() {
-    document.getElementById('categoryDropdown').classList.add('d-none');
-    document.getElementById('category').style.cssText = `
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        border-bottom: 1px solid #D1D1D1;
-    `;
-    document.getElementById('category').onclick = openCategoryDropdown;
+    if (categoryDropdownIsOpen) {
+        document.getElementById('categoryDropdown').classList.add('d-none');
+        document.getElementById('category').style.cssText = `
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-bottom: 1px solid #D1D1D1;
+        `;
+        document.getElementById('category').onclick = openCategoryDropdown;
+        categoryDropdownIsOpen = false;
+    }
 }

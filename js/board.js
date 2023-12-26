@@ -15,7 +15,6 @@ let chosenStat = 'todo';
 function giveTaskId() {
     for (let i = 0; i < newTaskArray.length; i++) {
         const currentTask = newTaskArray[i];
-
         currentTask['id'] = i;
     }
     removeClassContentSectionAddTask();
@@ -57,7 +56,6 @@ function renderBoardHeaderHTML() {
     let content = document.getElementById('boardHeadlineContainer');
 
     content.innerHTML = '';
-
     content.innerHTML += renderBoardHeaderTemplateHTML();
 }
 
@@ -69,11 +67,9 @@ function renderStatusFieldsHTML() {
     let content = document.getElementById('boardContentContainer');
 
     content.innerHTML = '';
-
     for (let i = 0; i < taskStatus.length; i++) {
         const stat = taskStatus[i];
         const statClass = taskStatusClasses[i];
-
         content.innerHTML += renderStatusfieldsTemplateHTML(i, stat, statClass);
     }
     updateBoardTasks();
@@ -89,7 +85,6 @@ function renderTodoTasksHTML(arrayName) {
     let todos = arrayName.filter(task => task['stat'] == 'todo');
 
     content.innerHTML = '';
-
     for (let i = 0; i < todos.length; i++) {
         const task = todos[i];
         let subtasksAmount = task['subtasks'].length;
@@ -123,7 +118,6 @@ function renderInProgressHTML(arrayName) {
     let inProgress = arrayName.filter(task => task['stat'] == 'inProgress');
 
     content.innerHTML = '';
-
     for (let i = 0; i < inProgress.length; i++) {
         const task = inProgress[i];
         let subtasksAmount = task['subtasks'].length;
@@ -145,7 +139,6 @@ function renderAwaitingFeedbackHTML(arrayName) {
     let awaitingFeedback = arrayName.filter(task => task['stat'] == 'awaitingFeedback');
 
     content.innerHTML = '';
-
     for (let i = 0; i < awaitingFeedback.length; i++) {
         const task = awaitingFeedback[i];
         let subtasksAmount = task['subtasks'].length;
@@ -167,7 +160,6 @@ function renderDoneHTML(arrayName) {
     let done = arrayName.filter(task => task['stat'] == 'done');
 
     content.innerHTML = '';
-
     for (let i = 0; i < done.length; i++) {
         const task = done[i];
         let subtasksAmount = task['subtasks'].length;
@@ -272,10 +264,9 @@ function closeTaskPopUp() {
 function renderClickedTaskPopUpHTML(Id) {
     let content = document.getElementById('overlaySection');
     let clickedTask = newTaskArray[Id];
+
     content.innerHTML = '';
-
     content.innerHTML += renderClickedTaskOverviewPopUpTemplateHTML(clickedTask, Id);
-
     renderTaskPopUpTableHTML(clickedTask);
     renderTaskPopUpAssignmentsHTML(clickedTask);
     renderSubtasksOverview(Id);
@@ -290,7 +281,6 @@ function renderTaskPopUpTableHTML(clickedTask) {
     let content = document.getElementById('taskPopUpTable');
 
     content.innerHTML = '';
-
     content.innerHTML += renderTaskPopUpTableTemplateHTML(clickedTask);
 }
 
@@ -303,7 +293,6 @@ function renderTaskPopUpAssignmentsHTML(clickedTask) {
     let content = document.getElementById('taskPopUpAssignmentsList');
 
     content.innerHTML = '';
-
     for (let i = 0; i < clickedTask['assignedTo'].length; i++) {
         const assignment = clickedTask['assignedTo'][i];
         let initials = getInitials(assignment);
@@ -334,12 +323,10 @@ function modifyCurrentTaskHTML(Id) {
 
     content.innerHTML = '';
     content.innerHTML = renderModifyTaskTemplateHTML(currentTask);
-
     renderModifyAssignmentsHTML(Id);
     setMinDate('modifyDate');
     modifyPrio(prio);
     renderModifySubtaskList(Id);
-
 }
 
 
@@ -352,7 +339,6 @@ function renderModifyAssignmentsHTML(Id) {
     let content = document.getElementById(`modifyPopUpAssignmentContainer${currentTask['id']}`);
 
     content.innerHTML = '';
-
     for (let i = 0; i < currentTask['assignedTo'].length; i++) {
         const assignment = currentTask['assignedTo'][i];
         let initials = getInitials(assignment);
@@ -429,7 +415,6 @@ function renderModifySubtaskList(Id) {
     let task = newTaskArray[Id];
 
     content.innerHTML = '';
-
     for (let i = 0; i < task['subtasks'].length; i++) {
         const subtask = task['subtasks'][i];
         let isChecked = task['isChecked'][i];
@@ -437,6 +422,7 @@ function renderModifySubtaskList(Id) {
         if (isChecked == true) {
             content.innerHTML += renderCheckedBoxTemplateHTML(i, Id, subtask);
         }
+
         if (isChecked == false) {
             content.innerHTML += renderUncheckedBoxTemplateHTML(i, Id, subtask);
         }
@@ -477,7 +463,6 @@ function changeImgBack() {
 function renderContactsModifyAddTask(Id) {
     activateEvent();
     let content = document.getElementById('assignedTo');
-
 
     content.innerHTML = /*html*/`
         <option value="" disabled selected>Select contacts to assign</option>
@@ -714,6 +699,5 @@ function renderFilteredTasks() {
     renderInProgressHTML(filteredTasks);
     renderAwaitingFeedbackHTML(filteredTasks);
     renderDoneHTML(filteredTasks);
-
     filteredTasks = [];
 }
