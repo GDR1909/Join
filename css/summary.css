@@ -175,12 +175,12 @@
     background-size: 69px;
     background-repeat: no-repeat;
     background-position: 25%;
-    background-image: url('../../img/pencilblue.png');
+    background-image: url('../img/pencilblue.png');
     background-color: #FFFFFF;
 }
 
 .toDobg:hover {
-    background-image: url('../../img/pencilwhite.png');
+    background-image: url('../img/pencilwhite.png');
     background-size: 69px;
     background-repeat: no-repeat;
     background-position: 25%;

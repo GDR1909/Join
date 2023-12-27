@@ -19,7 +19,7 @@ function getMsg() {
  * Redirects the user to the sign-up page.
  */
 function leadToSignUp() {
-  window.location.href = "signUp.html";
+  window.location.href = "../html/signUp.html";
 }
 
 
@@ -27,7 +27,7 @@ function leadToSignUp() {
  * Redirects the user to the guest login page.
  */
 function guestLogIn() {
-  window.location.replace("../../index.html");  //https://gruppenarbeit-join-578.developerakademie.net/Join/index.html
+  window.location.replace("../index.html");  //https://gruppenarbeit-join-578.developerakademie.net/Join/index.html
 }
 
 
@@ -46,7 +46,7 @@ async function login() {
   localStorage.setItem('currentEmail', email.value);
 
   if (user) {
-    window.location.replace("https://gruppenarbeit-join-578.developerakademie.net/Join/index.html");
+    window.location.replace("https://https://davide-religioso.developerakademie.net/Join/index.html");
   } else {
     document.getElementById("msgBox").innerHTML = `Email oder Passwort nicht korrekt!`;
     document.getElementById("msgBoxDiv").classList.remove("d-none");

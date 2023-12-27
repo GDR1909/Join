@@ -175,14 +175,14 @@
 }
 
 .emailimg {
-    background-image: url('../../img/email.png') !important;
+    background-image: url('../img/email.png') !important;
     background-position: 220px 8px !important;
     background-size: 10px !important;
     background-repeat: no-repeat !important;
 }
 
 .passwordimg {
-    background-image: url('../../img/lock.png') !important;
+    background-image: url('../img/lock.png') !important;
     background-position: 220px 8px !important;
     background-size: 10px !important;
     background-repeat: no-repeat !important;
@@ -190,7 +190,7 @@
 }
 
 .nameimg {
-    background-image: url('../../img/nameimg.png') !important;
+    background-image: url('../img/nameimg.png') !important;
     background-position: 220px 8px !important;
     background-size: 10px !important;
     background-repeat: no-repeat !important;
