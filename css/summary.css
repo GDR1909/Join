@@ -196,7 +196,7 @@
 
 .donebg {
     background-size: 69px;
-    background-image: url('../../img/checkboxblue.png');
+    background-image: url('../img/checkboxblue.png');
     background-repeat: no-repeat;
     background-position: 25%;
     background-color: #FFFFFF;
@@ -204,7 +204,7 @@
 
 .donebg:hover {
     background-size: 69px;
-    background-image: url('../../img/checkboxwhite.png');
+    background-image: url('../img/checkboxwhite.png');
     background-repeat: no-repeat;
     background-position: 25%;
 }
@@ -408,9 +408,5 @@
 
     .personalTaskBox {
         margin-top: 10px;
-    }
-
-    .headlineDiv {
-        width: 350px;
     }
 }
