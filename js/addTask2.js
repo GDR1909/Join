@@ -73,18 +73,38 @@ function newSubtask() {
     } else {
         allSubtasks.push(newSubtask);
         isChecked.push(false);
-        document.getElementById('subtasksList').innerHTML = '';
-        for (let i = 0; i < allSubtasks.length; i++) {
-            let subtask = allSubtasks[i];
-            document.getElementById('subtasksList').innerHTML += /*html*/ `
-                <div class="subtask">
-                    <input type="checkbox">
-                    <p>${subtask}</p>
-                </div>
-            `;
-        }
+        renderSubtasksList();
     }
     document.getElementById('subtasks').value = '';
+}
+
+
+/**
+ * Renders the list of subtasks on the web page.
+ * Clears the existing content of the 'subtasksList' element and populates it with the subtasks.
+ */
+function renderSubtasksList() {
+    document.getElementById('subtasksList').innerHTML = '';
+    for (let i = 0; i < allSubtasks.length; i++) {
+        let subtask = allSubtasks[i];
+        document.getElementById('subtasksList').innerHTML += /*html*/ `
+            <div class="subtask">
+                <input type="checkbox">
+                <p>${subtask}</p>
+                <img src="../img/delete.png" onclick="deleteSubtask(${i})">
+            </div>
+        `;
+    }
+}
+
+
+/**
+ * Deletes a subtask at the specified index and re-renders the subtasks list.
+ * @param {number} i - Index of the subtask to be deleted.
+ */
+function deleteSubtask(i) {
+    allSubtasks.splice(i, 1);
+    renderSubtasksList();
 }
 
 

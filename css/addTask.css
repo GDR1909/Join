@@ -400,13 +400,26 @@ button {
     display: flex;
     align-items: center;
     gap: 5px;
-    height: 20px;
+    height: 25px;
 }
 
 .subtask input {
     height: 15px;
     width: 15px;
     cursor: pointer;
+}
+
+.subtask img {
+    height: 15px;
+    width: 15px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: all ease-in-out 125ms;
+}
+
+.subtask img:hover {
+    transform: scale(1.1);
+    transition: all ease-in-out 125ms;
 }
 
 .twoButtons {
