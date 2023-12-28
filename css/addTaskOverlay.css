@@ -126,3 +126,9 @@
         margin-top: 20px
     }
 }
+
+@media (max-width: 360px) {
+    .headlineContainerOverlay h1 {
+        font-size: 51px;
+    }
+}

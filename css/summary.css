@@ -21,6 +21,7 @@
 }
 
 .goodMorning {
+    margin-left: 5px;
     font-size: 47px;
 }
 
@@ -31,6 +32,7 @@
     height: 100%;
     overflow-y: scroll;
 }
+
 .summarySection::-webkit-scrollbar{
     display: none;
   }
@@ -58,9 +60,11 @@
     max-width: 270px !important;
     margin-bottom: 30px !important;
 }
+
 .innerContentSummary{
     margin-bottom: 80px;
 }
+
 .taskbox {
     cursor: pointer;
     height: 170px;
@@ -125,7 +129,6 @@
     justify-content: center;
     align-items: center;
     border-right: 2px solid #D1D1D1;
-    ;
 }
 
 .news img {
@@ -146,7 +149,6 @@
     align-items: center;
 }
 
-
 .personalTasks {
     gap: 35px;
 }
@@ -165,7 +167,6 @@
 }
 
 .personalTaskBox:hover {
-
     background: #2A3647;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     color: #FFFFFF;
@@ -225,6 +226,7 @@
     .innerContentSummary{
         margin-bottom: 30px;
     }
+
     .greeting {
         position: absolute;
         left: 0;
@@ -340,7 +342,6 @@
         width: 65px;
     }
 
-
     .newsAndDate {
         height: 110px;
         width: 360px;
@@ -408,5 +409,102 @@
 
     .personalTaskBox {
         margin-top: 10px;
+    }
+}
+
+@media (max-width: 365px) {
+    /* .summarySection {
+        padding: 0;
+    } */
+
+    .headlineDiv {
+        width: 100%;
+    }
+
+    .managementText {
+        font-size: 18px;
+    }
+
+    .contentAndGreeting {
+        width: 100%;
+    }
+
+    .innerContentSummary {
+        width: 100%;
+    }
+
+    .taskSection {
+        justify-content: space-between;
+        gap: 0;
+    }
+
+    .taskbox {
+        height: 100px;
+        width: 100px;
+        border-radius: 10px;
+    }
+
+    .tasknumber {
+        font-size: 37px;
+    }
+
+    .tasktext {
+        font-size: 12px;
+    }
+
+    .newsAndDate {
+        height: 100px;
+        border-radius: 10px;
+        font-size: 12px;
+        width: 100%;
+    }
+
+    .news img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .newsNumber {
+        font-size: 37px;
+    }
+
+    .insertDate {
+        font-size: 17px;
+    }
+
+    .personalTasks {
+        justify-content: space-between;
+        gap: 0;
+    }
+
+    .personalTaskBox {
+        width: 160px;
+        border-radius: 10px;
+        height: 100px;
+        font-size: 12px;
+    }
+
+    .toDobg {
+        background-size: 30px;
+    }
+
+    .toDobg:hover {
+        background-size: 30px;
+    }
+
+    .toDoNumber {
+        font-size: 37px;
+    }
+
+    .donebg {
+        background-size: 30px;
+    }
+
+    .donebg:hover {
+        background-size: 30px;
+    }
+
+    .doneNumber {
+        font-size: 37px;
     }
 }

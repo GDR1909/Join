@@ -61,7 +61,6 @@
 }
 
 @media (max-width: 1000px) {
-
     .contactsDetailHead h2 {
         margin-top: 20px;
     }
@@ -354,8 +353,18 @@
     }
 }
 
-@media (max-height: 730px) {
+@media (max-width: 340px) {
+    .sidebarBtn img {
+        height: 18px;
+        width: 26px;
+    }
 
+    .sidebarBtn p {
+        font-size: 14px;
+    }
+}
+
+@media (max-height: 730px) {
     .sidebarLegal {
         padding-top: 50px;
     }

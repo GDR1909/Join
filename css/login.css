@@ -8,7 +8,7 @@
 }
 
 .logo img {
-    
+
     position: absolute;
     top: 45px;
     left: 45px;
@@ -443,7 +443,8 @@
         height: 70px;
 
     }
-    .logo img{
+
+    .logo img {
         height: 70px;
     }
 
@@ -594,5 +595,24 @@
         100% {
             z-index: -5;
         }
+    }
+}
+
+@media (max-width: 360px) {
+    .innerContentLogin {
+        min-width: 318px;
+    }
+
+    .rememberAndAPassword {
+        width: 34%;
+        padding-left: 0;
+    }
+
+    .loginButtons {
+        width: 0;
+    }
+
+    .innerContentForgotPw {
+        min-width: 318px;
     }
 }
