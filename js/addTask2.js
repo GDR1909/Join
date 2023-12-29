@@ -42,7 +42,6 @@ function showAssignedToList() {
 
 /**
  * This function remove an assigned contact when clicked on and enables it again.
- * 
  * @param {number} position - This is the position in the assignee in the assignedToNames array. 
  * @param {number} objId - This is the position in the objIds array.
  */
